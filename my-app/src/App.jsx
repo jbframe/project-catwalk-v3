@@ -38,6 +38,13 @@ class App extends React.Component {
     this.setState({bagItems: [...this.state.bagItems, this.state.product_id]})
   }
 
+  componentWillUnmount() {
+    // fix Warning: Can't perform a React state update on an unmounted component
+    this.setState = (state,callback)=>{
+        return;
+    };
+  }
+
   handleWindowResize() {
     if (!this.state.isMobile && window.innerWidth < 700) {
         this.setState({isMobile: true})

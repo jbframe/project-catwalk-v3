@@ -31,8 +31,8 @@ class ProductOverview extends React.Component {
     return (
       <React.Fragment>
       <header>
-      <div class="headerContainer">
-        <span class="logo">FE3 Catwalk</span>
+      <div className="headerContainer">
+        <span className="logo">FE3 Catwalk</span>
         {/* <span class="names">John | Graham | Mason</span> */}
       </div>
       </header>

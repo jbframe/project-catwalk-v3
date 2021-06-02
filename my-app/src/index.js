@@ -30,7 +30,7 @@ import {
 
     useEffect(() => {
       document.addEventListener("keydown", productSelect, false);
-    })
+    }, [])
 
     let conditionalRender = ()=> {
       if (endPoint.redirect) {

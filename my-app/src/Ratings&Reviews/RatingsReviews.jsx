@@ -32,6 +32,13 @@ class RatingsReviews extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    // fix Warning: Can't perform a React state update on an unmounted component
+    this.setState = (state,callback)=>{
+        return;
+    };
+  }
+
   getReviews() {
     axios.get('/reviews', {
       params: {
@@ -40,7 +47,6 @@ class RatingsReviews extends React.Component {
     })
       .then(response => {
         let results = response.data.results;
-        console.log(results);
         this.setState({ reviews: results });
       })
       .catch(response => {

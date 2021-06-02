@@ -9,7 +9,6 @@ import AddQuestion from './AddQuestion';
 class QuestionsAnswers extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       searched: [],
       isClicked: false,
@@ -24,6 +23,13 @@ class QuestionsAnswers extends React.Component {
   // methods
   componentDidMount() {
     this.renderQASection();
+  }
+
+  componentWillUnmount() {
+    // fix Warning: Can't perform a React state update on an unmounted component
+    this.setState = (state,callback)=>{
+        return;
+    };
   }
 
   renderQASection() {
